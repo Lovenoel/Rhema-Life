@@ -1,4 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+
+login_manager = LoginManager()
 db = SQLAlchemy()
 
 
@@ -11,6 +14,10 @@ class User(db.Model):
 
     def repr__(self):
         return f'<User {self.username}, {self.email}>'
+    
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
     '''def __repr__(self) -> str:
         return super().__repr__()

@@ -12,3 +12,5 @@ def login():
     """Endpoint for user login"""
     if current_user.is_authenticated:
         return redirect(url_for('home'))
+    else:
+        return "I am so blessed"
