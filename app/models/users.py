@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 class User(db.Model):
     """Class representation of the User object"""
-    'tablename' = 'user'
+    'tablename' == 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     email= db.Column(db.String(25), nullable=False, unique=True)
